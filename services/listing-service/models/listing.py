@@ -9,7 +9,7 @@ class Listing(db.Model):
     title = db.Column(db.String(200), nullable=False)
     description = db.Column(db.Text, nullable=True)
     price = db.Column(db.Numeric(10, 2), nullable=False)
-    status = db.Column(db.Enum('available', 'sold', 'pending', 'rejected', name='listing_statuses'), default='pending', nullable=False)
+    status = db.Column(db.Enum('available', 'sold', 'rejected', name='listing_statuses'), default='pending', nullable=False)
     created_at = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
      
     images = db.relationship('ListingImage', back_populates='listing', cascade='all, delete-orphan')

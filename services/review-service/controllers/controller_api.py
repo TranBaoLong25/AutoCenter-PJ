@@ -41,7 +41,6 @@ def create_review():
          return jsonify(error="Thiếu các trường bắt buộc: transaction_id, reviewer_user, rating"), 400
     review, error_message = ReviewService.create_review(
             transaction_id=transaction_id,
-            reviewer_id=reviewer_id,
             reviewer_id=current_user_id,
             rating=rating,
             comment=comment
